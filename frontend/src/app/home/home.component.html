@@ -8,14 +8,15 @@
         pButton label="Add Product" 
         (click)="toggleAddPopup()" 
         label = "Add Product"
-    >Add Product</button>
+    ></button>
 
     <!-- Products Section -->
     <div class="row wrap gap-1 space-between">
         <app-product  
             *ngFor="let product of products"
             [product]="product"    
-            (productOutput)="onProductOutput($event)"       
+            (edit)="onProductEdit($event)"
+            (delete)="onProductDelete($event)"
         ></app-product>
     </div>
 
@@ -25,6 +26,7 @@
         (onPageChange)="onPageChange($event)" 
         [rows]="rows" 
         [totalRecords]="totalRecords" 
+        #paginator
         [rowsPerPageOptions]="[5, 10, 15]" />
     </div>
 
@@ -32,7 +34,8 @@
     <app-edit-popup 
         [product]="selectedProduct" 
         [display]="displayEditPopup" 
-        (confirm)="onConfirmEdit($event)" 
+        (confirm)="onConfirmEdit($event)"
+        (cancel)="onCancelEdit()"
         [header]="'Edit Product'"
     ></app-edit-popup>
 
@@ -41,4 +44,5 @@
         [display]="displayAddPopup" 
         (confirm)="onConfirmAdd($event)"
         header="Add Product"
+        (cancel)="onCancelAdd()"
     ></app-edit-popup>
