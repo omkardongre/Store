@@ -1,47 +1,63 @@
 
-# Node.js Server for Angular Storefront - Crash Course
 
-This server provides the backend functionality for the Angular frontend, allowing users to perform CRUD (Create, Read, Update, Delete) operations on products. The server utilizes Express and interacts with a JSON file to manage product data.
+# Angular Storefront Project
 
-## Table of Contents
+This project is a storefront web application built using Angular for the frontend and Node.js with Express for the backend. It includes features such as product management, user authentication, and a responsive user interface.
 
-- [Features](#features)
-- [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installation](#installation)
-- [Usage](#usage)
-- [License](#license)
+## Backend Setup
 
-## Features
+1. Install Node.js.
+2. Navigate to the `server` directory.
+3. Install dependencies using `npm install`.
+4. Start the server using `node server.js`.
 
-- **Express Server:** The server is built with Express, providing a robust and scalable backend.
-- **CRUD Operations:** Supports Create, Read, Update, and Delete operations on product data.
-- **JSON Data Storage:** Products are stored and manipulated within a JSON file instead of a traditional database.
+## Frontend Setup
 
-## Getting Started
+1. Navigate to the `frontend` directory.
+2. Install Angular CLI if not already installed: `npm install -g @angular/cli`.
+3. Install dependencies using `npm install`.
+4. Start the development server using `ng serve`.
 
-### Prerequisites
+## Testing
 
-Before you begin, ensure you have the following installed:
+- Ensure both frontend and backend servers are running.
+- Access the application at `http://localhost:4200`.
 
-- [Node.js](https://nodejs.org/) and [npm](https://www.npmjs.com/)
+## API Endpoints
 
-### Installation
+### GET /clothes
+Retrieve items with pagination support.
 
-1. Clone the repository:
-     ```bash
-     git clone https://github.com/thecodedeck/angular-cc-1-server.git
+### POST /clothes
+Add a new item to the store.
 
-2. Install  dependencies:
-    npm install
+### PUT /clothes/:id
+Update an existing item in the store.
 
-### Usage
-Run the server:
-    npm start
-The server will be running on http://localhost:3000/.
+### DELETE /clothes/:id
+Delete an item from the store.
 
-The Angular frontend will interact with these API endpoints to perform CRUD operations on products.
+## Angular Service Integration
 
-### License
-This project is licensed under the MIT License.
+The frontend uses an Angular service (`ProductsService`) to interact with the backend API endpoints. This service includes methods for:
 
+- Retrieving products with pagination support.
+- Adding a new product.
+- Editing an existing product.
+- Deleting a product.
+
+## Dependencies
+
+- **Express:** Web framework for Node.js.
+- **Cors:** Middleware for enabling Cross-Origin Resource Sharing.
+- **Angular CLI:** Command-line interface for Angular development.
+
+## Additional Features
+
+- **Angular Components:** Modular architecture with reusable components.
+- **Responsive Design:** Built using Angular Material and other UI libraries for a responsive and user-friendly interface.
+- **Mock Database Integration:** Uses a `db.json` file to simulate a database for development and testing purposes.
+
+---
+
+This README provides an overview of the project, setup instructions, API endpoints, and a description of the Angular service integration, without including any specific code snippets.
